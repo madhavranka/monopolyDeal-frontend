@@ -117,7 +117,14 @@ const Game: React.FC = () => {
     // setIsGameStarted(true);
   };
 
-  const playTurn = (card: string, action: string) => {
+  const playTurn = (
+    card: string,
+    action: string,
+    useAsCash: boolean = false,
+    pileIndex: number = 0,
+    color?: string,
+    playedWithDoubleRent: boolean = false
+  ) => {
     const message = {
       type: 'playTurn',
       gameId: gameId,
@@ -126,12 +133,12 @@ const Game: React.FC = () => {
         action,
         playerName: playerName,
         card,
-        useAsCash: '',
+        useAsCash,
         amount: 0,
-        playedWithDoubleRent: false,
-        color: '',
+        playedWithDoubleRent,
+        color,
         playerToAct: 0,
-        pileIndex: 0,
+        pileIndex,
         takeCard: '',
         giveCard: '',
       },
